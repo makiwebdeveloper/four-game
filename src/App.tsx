@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createBoard } from "./utils/createBoard";
 import classNames from "classnames";
+import { checkWin } from "./utils/checkWin";
 
 function App() {
   const [currentPlayer, setCurrentPlayer] = useState<"red" | "orange">("red");
@@ -18,6 +19,7 @@ function App() {
         board.map((col) => (col.id === selectedColumnId ? selectedColumn : col))
       );
       setCurrentPlayer((player) => (player === "red" ? "orange" : "red"));
+      checkWin(board, selectedColumnId, triedItem, currentPlayer)
     } else {
       handlerClick(triedItem - 1);
     }
