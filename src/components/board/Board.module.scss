@@ -1,0 +1,35 @@
+.board {
+  @apply relative bg-white w-[290px] h-[270px] sm:w-[430px] sm:h-[400px] p-[10px] gap-[10px] flex rounded-2xl;
+
+  &::before {
+    @apply absolute left-[-3px] bottom-[-20px] content-[''] w-[calc(100%+6px)] h-[calc(100%+23px)] bg-black z-[-1] rounded-2xl;
+  }
+}
+
+.column {
+  @apply flex flex-col gap-[10px] h-[230px] sm:h-[350px] hover:bg-black hover:bg-opacity-10 rounded-full cursor-pointer;
+}
+
+.cell {
+  @apply relative w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] bg-violet-600 rounded-full;
+  box-shadow: inset 0px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.markLine {
+  @apply flex gap-[10px] mx-[10px];
+
+  .markWrapper {
+    @apply w-[50px] h-[50px] flex items-center justify-center;
+
+    .mark {
+      @apply w-[30px] h-[30px] bg-red-500;
+      box-shadow: inset 0px 5px 0px 0px rgba(0, 0, 0, 1);
+      border-radius: 3px;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 50% 100%, 0% 60%);
+    }
+  }
+}
+
+.moveBtn {
+  @apply bg-violet-400 transition hover:bg-violet-300 text-violet-800 font-semibold w-full py-2 2xl:py-3 2xl:text-lg rounded-full mt-[30px];
+}
