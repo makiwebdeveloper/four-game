@@ -8,6 +8,7 @@ interface Props {
   selectedColumnId: number;
   setSelectedColumnId: (value: number) => void;
   moveHandler: (triedItem: number) => void;
+  winner: null | PLAYERS;
 }
 
 const Board: FC<Props> = ({
@@ -15,6 +16,7 @@ const Board: FC<Props> = ({
   setSelectedColumnId,
   selectedColumnId,
   moveHandler,
+  winner,
 }) => {
   return (
     <div className="w-[290px] sm:w-[430px]">
@@ -45,14 +47,18 @@ const Board: FC<Props> = ({
           </div>
         ))}
       </div>
-      <button
-        className={styles.moveBtn}
-        onClick={() =>
-          moveHandler(board[0].items[board[0].items.length - 1].id)
-        }
-      >
-        Make a move
-      </button>
+      {winner ? (
+        <div className={styles.winner}>{winner} WIN</div>
+      ) : (
+        <button
+          className={styles.moveBtn}
+          onClick={() =>
+            moveHandler(board[0].items[board[0].items.length - 1].id)
+          }
+        >
+          Make a move
+        </button>
+      )}
     </div>
   );
 };

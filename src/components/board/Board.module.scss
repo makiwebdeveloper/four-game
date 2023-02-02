@@ -39,3 +39,11 @@
 .moveBtn {
   @apply bg-violet-400 transition hover:bg-violet-300 text-violet-800 font-semibold w-full py-2 2xl:py-3 2xl:text-lg rounded-full mt-[30px];
 }
+
+.winner {
+  @apply relative mt-[30px] bg-white w-fit mx-auto rounded-xl px-4 py-2 uppercase bg-yellow-300 font-semibold;
+
+  &::before {
+    @apply absolute left-[-3px] bottom-[-10px] content-[''] w-[calc(100%+6px)] h-[calc(100%+13px)] bg-black z-[-1] rounded-2xl;
+  }
+}

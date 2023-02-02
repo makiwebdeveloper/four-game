@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./App.module.scss";
 import { Board, Header } from "./components";
 import { PLAYERS } from "./types";
+import { checkWin } from "./utils/checkWin";
 import { createBoard } from "./utils/createBoard";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
   );
   const [board, setBoard] = useState(() => createBoard());
   const [selectedColumnId, setSelectedColumnId] = useState(0);
+  const [winner, setWinner] = useState<null | PLAYERS>(null);
 
   const moveHandler = (triedItem: number) => {
     if (triedItem < 0) return;
@@ -24,7 +26,7 @@ function App() {
       setCurrentPlayer((player) =>
         player === PLAYERS.PLAYER_ONE ? PLAYERS.PLAYER_TWO : PLAYERS.PLAYER_ONE
       );
-      // checkWin(board, selectedColumnId, triedItem, currentPlayer);
+      setWinner(checkWin(board, selectedColumnId, triedItem, currentPlayer));
     } else {
       moveHandler(triedItem - 1);
     }
@@ -34,6 +36,7 @@ function App() {
     setBoard(() => createBoard());
     setCurrentPlayer(PLAYERS.PLAYER_ONE);
     setSelectedColumnId(0);
+    setWinner(null);
   };
 
   return (
@@ -45,6 +48,7 @@ function App() {
           setSelectedColumnId={setSelectedColumnId}
           board={board}
           moveHandler={moveHandler}
+          winner={winner}
         />
         <div className={styles.footer}></div>
       </div>
