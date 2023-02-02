@@ -11,8 +11,14 @@
 }
 
 .cell {
-  @apply relative w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] bg-violet-600 rounded-full;
-  box-shadow: inset 0px 8px 0px 0px rgba(0, 0, 0, 1);
+  @apply relative w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] rounded-full;
+  box-shadow: inset 0px 7px 0px 0px rgba(0, 0, 0, 1);
+}
+
+@media (max-width: 640px) {
+  .cell {
+    box-shadow: inset 0px 4px 0px 0px rgba(0, 0, 0, 1);
+  }
 }
 
 .markLine {
