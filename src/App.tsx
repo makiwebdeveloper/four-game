@@ -15,7 +15,7 @@ function App() {
     if (triedItem < 0) return;
 
     const selectedColumn = board[selectedColumnId];
-    
+
     if (!selectedColumn.items[triedItem].player) {
       selectedColumn.items[triedItem].player = currentPlayer;
       setBoard((board) =>
@@ -30,10 +30,16 @@ function App() {
     }
   };
 
+  const restart = () => {
+    setBoard(() => createBoard());
+    setCurrentPlayer(PLAYERS.PLAYER_ONE);
+    setSelectedColumnId(0);
+  };
+
   return (
     <div className={styles.app}>
       <div className={styles.content}>
-        <Header />
+        <Header restart={restart} />
         <Board
           selectedColumnId={selectedColumnId}
           setSelectedColumnId={setSelectedColumnId}

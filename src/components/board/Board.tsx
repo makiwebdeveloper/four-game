@@ -20,7 +20,7 @@ const Board: FC<Props> = ({
     <div className="w-[290px] sm:w-[430px]">
       <div className={styles.markLine}>
         {board.map((column) => (
-          <div className={styles.markWrapper}>
+          <div key={column.id} className={styles.markWrapper}>
             {column.id === selectedColumnId && <div className={styles.mark} />}
           </div>
         ))}

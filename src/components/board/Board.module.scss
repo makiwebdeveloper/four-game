@@ -7,7 +7,7 @@
 }
 
 .column {
-  @apply flex flex-col gap-[10px] h-[230px] sm:h-[350px] hover:bg-black hover:bg-opacity-10 rounded-full cursor-pointer;
+  @apply flex flex-col gap-[10px] h-[230px] sm:h-[350px] transition hover:bg-black hover:bg-opacity-10 rounded-full cursor-pointer;
 }
 
 .cell {
