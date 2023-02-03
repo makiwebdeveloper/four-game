@@ -51,7 +51,12 @@ const Board: FC<Props> = ({
       </div>
       {winner ? (
         <div className={styles.winner}>
-          <div className={`${styles.cell} bg-red-400`}></div>
+          <div
+            className={`${styles.winnerCell} ${classNames(
+              { "bg-red-400": winner === PLAYERS.PLAYER_ONE },
+              { "bg-orange-400": winner === PLAYERS.PLAYER_TWO }
+            )}`}
+          ></div>
           {winner} WIN
         </div>
       ) : (
