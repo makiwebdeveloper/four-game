@@ -23,7 +23,9 @@ const Board: FC<Props> = ({
       <div className={styles.markLine}>
         {board.map((column) => (
           <div key={column.id} className={styles.markWrapper}>
-            {column.id === selectedColumnId && <div className={styles.mark} />}
+            {!winner && column.id === selectedColumnId && (
+              <div className={styles.mark} />
+            )}
           </div>
         ))}
       </div>
@@ -48,7 +50,10 @@ const Board: FC<Props> = ({
         ))}
       </div>
       {winner ? (
-        <div className={styles.winner}>{winner} WIN</div>
+        <div className={styles.winner}>
+          <div className={`${styles.cell} bg-red-400`}></div>
+          {winner} WIN
+        </div>
       ) : (
         <button
           className={styles.moveBtn}

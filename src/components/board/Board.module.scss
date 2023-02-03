@@ -41,9 +41,20 @@
 }
 
 .winner {
-  @apply relative mt-[30px] bg-white w-fit mx-auto rounded-xl px-4 py-2 uppercase bg-yellow-300 font-semibold;
+  @apply relative flex items-center gap-[10px] mt-[30px] bg-white w-fit mx-auto rounded-xl px-4 py-2 uppercase bg-yellow-300 font-semibold;
 
   &::before {
     @apply absolute left-[-3px] bottom-[-10px] content-[''] w-[calc(100%+6px)] h-[calc(100%+13px)] bg-black z-[-1] rounded-2xl;
+  }
+}
+
+.winnerCell {
+  @apply relative w-[30px] h-[30px] sm:w-[30px] sm:h-[30px] rounded-full;
+  box-shadow: inset 0px 7px 0px 0px rgba(0, 0, 0, 1);
+}
+
+@media (max-width: 640px) {
+  .winnerCell {
+    box-shadow: inset 0px 4px 0px 0px rgba(0, 0, 0, 1);
   }
 }
