@@ -8,7 +8,6 @@ interface Props {
 const Header: FC<Props> = ({ restart }) => {
   return (
     <div className={styles.header}>
-      <button className={styles.btn}>MENU</button>
       <button className={styles.btn} onClick={restart}>
         RESTART
       </button>
